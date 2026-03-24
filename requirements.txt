@@ -1,0 +1,15 @@
+# ── Core ML ──────────────────────────────────────────────────────────────────
+transformers>=4.40.0
+# PyTorch must be installed separately BEFORE this file:
+#   pip install torch>=2.2.0 --index-url https://download.pytorch.org/whl/cpu
+
+# ── Standard data handling ────────────────────────────────────────────────────
+pandas>=2.0.0              # optional: used if you extend to DataFrame input
+tqdm>=4.66.0               # CSV batch progress bar
+
+# ── No external deps needed for:
+#    - preprocessor.py   (stdlib only: re, unicodedata, base64, html, urllib)
+#    - stage0_cache.py   (stdlib only: hashlib, collections)
+#    - stage1_heuristics.py (stdlib only: re)
+#    - result.py         (stdlib only: dataclasses, enum)
+#    - config.py         (stdlib only: dataclasses)
