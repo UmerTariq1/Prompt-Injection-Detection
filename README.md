@@ -2,7 +2,9 @@
 
 A lightweight, CPU-friendly pipeline that detects prompt injection attacks in user inputs. It uses a 4-stage cascade,  each stage only runs if the previous one is uncertain — keeping average latency low.
 
-### Achieves **91.46%** accuracy on [xTRam1/safe-guard-prompt-injection](https://huggingface.co/datasets/xTRam1/safe-guard-prompt-injection)  dataset
+### Achieves **91.46%** accuracy on [xTRam1/safe-guard-prompt-injection](https://huggingface.co/datasets/xTRam1/safe-guard-prompt-injection)  dataset.
+### Achieves **74%** accuracy and **94%** precision on [deepset/prompt-injections](https://huggingface.co/datasets/deepset/prompt-injections)  dataset.
+
 
 ## How it works
 
