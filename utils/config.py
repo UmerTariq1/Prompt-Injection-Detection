@@ -20,7 +20,7 @@ class Config:
 
     # ── Stage 1: Heuristics ──────────────────────────────────────────────────
     # If heuristic score >= this, immediately flag as INJECTION (skip ML)
-    heuristic_inject_threshold:  float = 0.65
+    heuristic_inject_threshold:  float = 0.80
     # If heuristic score <= this, immediately flag as SAFE (skip ML).
     # Use <= 0 to disable this fast-path (low scores go to Stage 2 instead).
     heuristic_safe_threshold:    float = 0.00
@@ -29,9 +29,9 @@ class Config:
     classifier_model:      str   = "protectai/deberta-v3-small-prompt-injection-v2"
     classifier_max_length: int   = 256
     # Score >= this → INJECTION verdict from Stage 2
-    classifier_inject_threshold:  float = 0.65
+    classifier_inject_threshold:  float = 0.80
     # Score <= this → SAFE verdict from Stage 2
-    classifier_safe_threshold:    float = 0.10
+    classifier_safe_threshold:    float = 0.00
     # Between the two thresholds → UNCERTAIN → escalate to Stage 3
 
     # ── Stage 3: Deep Scan (DeBERTa-v3-base, heavier) ───────────────────────

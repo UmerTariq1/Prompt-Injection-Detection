@@ -12,14 +12,21 @@ from pathlib import Path
 from datasets import load_dataset
 
 _REPO_ROOT = Path(__file__).resolve().parent.parent
-_DEFAULT_OUT = _REPO_ROOT / "assets" / "data" / "safe-guard-prompt-injection.csv"
+
+dataset_name = "deepset/prompt-injections"
+part = "test"
+
+clean_name = dataset_name.replace("/", "_") + "_" + part
+
+
+_DEFAULT_OUT = _REPO_ROOT / "assets" / "data" / f"{clean_name}.csv"
 
 
 def export_test_split(out_path: Path | None = None) -> Path:
     path = out_path or _DEFAULT_OUT
     path.parent.mkdir(parents=True, exist_ok=True)
-    ds = load_dataset("xTRam1/safe-guard-prompt-injection")
-    ds["train"].to_csv(str(path))
+    ds = load_dataset(dataset_name)
+    ds[part].to_csv(str(path))
     return path
 
 
