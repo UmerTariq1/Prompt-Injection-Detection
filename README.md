@@ -1,6 +1,8 @@
 # Prompt Injection Detection
 
-A lightweight, CPU-friendly pipeline that detects prompt injection attacks in user inputs. It uses a 4-stage cascade — each stage only runs if the previous one is uncertain — keeping average latency low.
+A lightweight, CPU-friendly pipeline that detects prompt injection attacks in user inputs. It uses a 4-stage cascade,  each stage only runs if the previous one is uncertain — keeping average latency low.
+
+### Achieves **91.46%** accuracy on [xTRam1/safe-guard-prompt-injection](https://huggingface.co/datasets/xTRam1/safe-guard-prompt-injection)  dataset
 
 ## How it works
 
@@ -12,7 +14,7 @@ A lightweight, CPU-friendly pipeline that detects prompt injection attacks in us
 
 Every verdict is one of: **INJECTION or (1)**, **SAFE or (0)**, or **UNCERTAIN or (-1)** (internal only — always resolved before returning).
 
-Reference picture : 
+Pipeline Stages : 
 ![Pipeline Stages](assets/imgs/pipeline_stages_diagram.png)
 
 ## Requirements
@@ -70,6 +72,3 @@ To refresh the SafeGuard CSV from Hugging Face (requires `pip install datasets`)
 
 - [ProtectAI prompt injection models on HuggingFace](https://huggingface.co/protectai)
 - [DeBERTa paper](https://arxiv.org/abs/2006.03654)
-- [HuggingFace Transformers](https://huggingface.co/docs/transformers)
-- [PyTorch CPU install guide](https://pytorch.org/get-started/locally/)
-- [OWASP LLM Top 10 — Prompt Injection](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
